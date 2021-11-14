@@ -1,0 +1,31 @@
+{
+  "name": "schema-exporter",
+  "version": "1.0.0",
+  "description": "Export schema of tables from cassandra database to json schema",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --experimental-modules index.js",
+    "dev": "nodemon --experimental-modules index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eluyema/schema-exporter.git"
+  },
+  "keywords": [
+    "cassandra",
+    "json-schema"
+  ],
+  "author": "Germanovich Danil <elluyema@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eluyema/schema-exporter/issues"
+  },
+  "homepage": "https://github.com/eluyema/schema-exporter#readme",
+  "dependencies": {
+    "write-json-file": "^5.0.0"
+  },
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
