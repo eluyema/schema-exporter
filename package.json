@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node --experimental-modules index.js",
-    "dev": "nodemon --experimental-modules index.js"
+    "dev": "nodemon --experimental-modules index.js",
+    "prepare": "husky install",
+    "eslint:fix": "eslint src --fix",
+    "eslint:check": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -26,6 +29,14 @@
   },
   "type": "module",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "eslint": "^8.2.0",
+    "eslint-config-metarhia": "^7.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-sonarjs": "^0.10.0",
+    "husky": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
   }
 }
