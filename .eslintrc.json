@@ -8,6 +8,10 @@
     "prettier/prettier": ["error",{
       
     }],
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "quotes":["warn","double"]
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
