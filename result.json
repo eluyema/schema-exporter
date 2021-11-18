@@ -1,0 +1,30 @@
+{
+	"info": {
+		"queriedHost": "::1:9042",
+		"triedHosts": {
+			"::1:9042": null
+		},
+		"speculativeExecutions": 0,
+		"achievedConsistency": 10,
+		"isSchemaInAgreement": true
+	},
+	"rows": [
+		{
+			"table_name": "developers"
+		},
+		{
+			"table_name": "fruit_stock"
+		}
+	],
+	"rowLength": 2,
+	"columns": [
+		{
+			"name": "table_name",
+			"type": {
+				"code": 13,
+				"type": null
+			}
+		}
+	],
+	"pageState": null
+}

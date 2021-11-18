@@ -1,21 +1,18 @@
-import { writeJsonFile } from "write-json-file";
-import cassandra from "cassandra-driver";
+import dse from "cassandra-driver";
+import Cassandra from "./Cassandra/cassandra.js";
 import config from "./config.js";
 
-const authProvider = new cassandra.auth.PlainTextAuthProvider(
+const authProvider = new dse.auth.PlainTextAuthProvider(
   config.username,
   config.password
 );
 
-const client = new cassandra.Client({
+const client = new dse.Client({
   contactPoints: [`${config.host}:${config.port}`],
   localDataCenter: config.localDataCenter,
   authProvider,
+  keyspace: config.keyspace,
 });
 
-const query = "SELECT * FROM system_schema.keyspaces;";
-client.execute(query, (err, result) => {
-  writeJsonFile("result.json", result);
-  console.log("END!");
-  err;
-});
+const cassandra = new Cassandra(client);
+cassandra.getAllTableNames(config.keyspace);

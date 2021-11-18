@@ -4,4 +4,5 @@ export default {
   port: 9042,
   username: "cassandra",
   password: "cassandra",
+  keyspace: "grocery",
 };
