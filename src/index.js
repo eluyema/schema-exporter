@@ -15,4 +15,6 @@ const client = new dse.Client({
 });
 
 const cassandra = new Cassandra(client);
-cassandra.getAllTableNames(config.keyspace);
+cassandra.getAllCassandraTables(config.keyspace).then((res) => {
+  console.log(res);
+});
