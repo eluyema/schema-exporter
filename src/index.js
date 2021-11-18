@@ -1,5 +1,5 @@
 import dse from "cassandra-driver";
-import Cassandra from "./Cassandra/cassandra.js";
+import Cassandra from "./Cassandra";
 import config from "./config.js";
 
 const authProvider = new dse.auth.PlainTextAuthProvider(
