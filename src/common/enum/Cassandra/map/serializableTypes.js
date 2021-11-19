@@ -1,8 +1,8 @@
-import { CassandraTypes } from "./types/mainTypes";
+import { CassandraTypes } from "../index";
 
-export const serializationAbility = {
+export const CassandraSerializableTypes = {
   [CassandraTypes.custom]: false,
-  [CassandraTypes.ascii]: false,
+  [CassandraTypes.ascii]: true,
   [CassandraTypes.bigint]: false,
   [CassandraTypes.blob]: false,
   [CassandraTypes.boolean]: false,
@@ -14,7 +14,7 @@ export const serializationAbility = {
   [CassandraTypes.text]: true,
   [CassandraTypes.timestamp]: false,
   [CassandraTypes.uuid]: false,
-  [CassandraTypes.varchar]: false,
+  [CassandraTypes.varchar]: true,
   [CassandraTypes.varint]: false,
   [CassandraTypes.timeuuid]: false,
   [CassandraTypes.inet]: false,

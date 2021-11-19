@@ -1,3 +1,5 @@
+import { cassandraToJsonShema } from "./cassandraMapper/cassandra";
+
 class JsonSchema {
   constructor() {
     this.schema = {
@@ -8,7 +10,17 @@ class JsonSchema {
   getSchemaByCassandraTable(table) {
     const { tableName: title } = table;
     this.schema.title = title;
-    this.schema.properties = {};
+    let properties = {};
+    table.columns.forEach((column) => {
+      const exampleValue = column.rowExample
+        ? column.rowExample[column.name]
+        : null;
+      properties = Object.assign(
+        properties,
+        cassandraToJsonShema(column, exampleValue)
+      );
+    });
+    this.schema.properties = properties;
     return this.schema;
   }
 }

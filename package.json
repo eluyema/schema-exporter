@@ -4,8 +4,8 @@
   "description": "Export schema of tables from cassandra database to json schema",
   "main": "index.js",
   "scripts": {
-    "start": "node --experimental-modules src/index.js",
-    "dev": "nodemon --experimental-modules src/index.js",
+    "start": "node --experimental-modules --es-module-specifier-resolution=node  src/index.js",
+    "dev": "nodemon --experimental-modules --es-module-specifier-resolution=node src/index.js",
     "prepare": "husky install",
     "eslint:fix": "eslint src --fix",
     "eslint:check": "eslint src"
@@ -26,6 +26,8 @@
   "homepage": "https://github.com/eluyema/schema-exporter#readme",
   "dependencies": {
     "cassandra-driver": "^4.6.3",
+    "is-json": "^2.0.1",
+    "to-json-schema": "^0.2.5",
     "write-json-file": "^5.0.0"
   },
   "devDependencies": {
