@@ -26,7 +26,7 @@ class Cassandra {
         cassandraTables.push({
           tableName: name,
           columns: rawResult.columns,
-          rowExample: rawResult.rows[0],
+          testRecord: rawResult.rows[0],
         });
       }
       return cassandraTables;

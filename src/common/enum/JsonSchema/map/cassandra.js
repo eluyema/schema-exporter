@@ -1,4 +1,4 @@
-import { CassandraTypes } from "../../Cassandra/types";
+import { CassandraTypes } from "../../cassandra/types";
 import { JsonSchemaTypes } from "../types";
 // map for convert common types of cassandra to json schema types
 

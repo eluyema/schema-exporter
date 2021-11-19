@@ -1,7 +1,8 @@
 import dse from "cassandra-driver";
-import Cassandra from "./databases/Cassandra";
+import Cassandra from "./databases/cassandra";
 import config from "./config.js";
-import { cassandraToJsonShema } from "./schemas/JsonSchema/cassandraMapper/cassandra";
+import JsonSchema from "./schemas/jsonschema";
+import { writeJsonFile } from "write-json-file";
 
 const authProvider = new dse.auth.PlainTextAuthProvider(
   config.username,
@@ -16,13 +17,21 @@ const client = new dse.Client({
 });
 
 const cassandra = new Cassandra(client);
-cassandra.getAllCassandraTables(config.keyspace).then((res) => {
-  res.forEach((table) => {
-    if (table.tableName === "cyclist_teams") {
-      const value = table.rowExample
-        ? table.rowExample[table.columns[3].name]
-        : null;
-      console.log("\n\n\n\n\n", cassandraToJsonShema(table.columns[3], value));
-    }
-  });
-});
+cassandra
+  .getAllCassandraTables(config.keyspace)
+  .then((tables) => {
+    console.log(
+      "\n\nThe tables from Cassandra have been successfully received," +
+        " now I will think about how to convert the types to the JsonSchema correctly ...\n\n"
+    );
+    writeJsonFile(
+      "result.json",
+      tables.map((table) => {
+        const schema = new JsonSchema();
+        return schema.getSchemaByCassandra(table);
+      })
+    ).then(() => {
+      console.log("result.json have been successfully composed\n\n");
+    });
+  })
+  .catch((err) => console.error(err));

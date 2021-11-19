@@ -7,17 +7,17 @@ class JsonSchema {
       type: "object",
     };
   }
-  getSchemaByCassandraTable(table) {
+  getSchemaByCassandra(table) {
     const { tableName: title } = table;
     this.schema.title = title;
     let properties = {};
     table.columns.forEach((column) => {
-      const exampleValue = column.rowExample
-        ? column.rowExample[column.name]
+      const testRecord = table.testRecord
+        ? table.testRecord[column.name]
         : null;
       properties = Object.assign(
         properties,
-        cassandraToJsonShema(column, exampleValue)
+        cassandraToJsonShema(column, testRecord)
       );
     });
     this.schema.properties = properties;

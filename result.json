@@ -1,30 +1,227 @@
-{
-	"info": {
-		"queriedHost": "::1:9042",
-		"triedHosts": {
-			"::1:9042": null
-		},
-		"speculativeExecutions": 0,
-		"achievedConsistency": 10,
-		"isSchemaInAgreement": true
-	},
-	"rows": [
-		{
-			"table_name": "developers"
-		},
-		{
-			"table_name": "fruit_stock"
-		}
-	],
-	"rowLength": 2,
-	"columns": [
-		{
-			"name": "table_name",
-			"type": {
-				"code": 13,
-				"type": null
+[
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "collect_things",
+		"properties": {
+			"k": {
+				"type": "integer"
+			},
+			"v": {
+				"type": "array",
+				"items": [
+					{
+						"type": "integer"
+					},
+					{
+						"type": "string"
+					},
+					{
+						"type": "number"
+					}
+				]
 			}
 		}
-	],
-	"pageState": null
-}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "cyclist_career_teams",
+		"properties": {
+			"id": {
+				"type": "string"
+			},
+			"lastname": {
+				"type": "string"
+			},
+			"teams": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "cyclist_teams",
+		"properties": {
+			"id": {
+				"type": "string"
+			},
+			"firstname": {
+				"type": "string"
+			},
+			"lastname": {
+				"type": "object",
+				"properties": {
+					"x": {
+						"type": "integer"
+					},
+					"y": {
+						"type": "integer"
+					}
+				}
+			},
+			"teams": {
+				"type": "array",
+				"items": [
+					{
+						"type": "integer"
+					},
+					{
+						"type": "object",
+						"properties": {
+							"x": {
+								"type": "integer"
+							},
+							"y": {
+								"type": "integer"
+							}
+						}
+					}
+				]
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "developers",
+		"properties": {
+			"developer_id": {
+				"type": "integer"
+			},
+			"first_name": {
+				"type": "string"
+			},
+			"last_name": {
+				"type": "string"
+			},
+			"messages": {
+				"type": "array",
+				"items": [
+					{
+						"type": "string"
+					},
+					{
+						"type": "string"
+					}
+				]
+			},
+			"salary": {
+				"type": "integer"
+			},
+			"skills": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			},
+			"specialty": {
+				"type": "string"
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "fruit_stock",
+		"properties": {
+			"item_id": {
+				"type": "string"
+			},
+			"name": {
+				"type": "string"
+			},
+			"price_p_item": {
+				"type": "number"
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "nested",
+		"properties": {
+			"k": {
+				"type": "integer"
+			},
+			"t": {
+				"type": "array",
+				"items": [
+					{
+						"type": "integer"
+					},
+					{
+						"type": "array",
+						"items": [
+							{
+								"type": "string"
+							},
+							{
+								"type": "number"
+							}
+						]
+					}
+				]
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "upcoming_calendar",
+		"properties": {
+			"year": {
+				"type": "integer"
+			},
+			"month": {
+				"type": "integer"
+			},
+			"events": {
+				"type": "array",
+				"items": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	{
+		"$schema": "http://json-schema.org/draft-04/schema#",
+		"type": "object",
+		"title": "users",
+		"properties": {
+			"name": {
+				"type": "string"
+			},
+			"address": {
+				"type": "object",
+				"property": {
+					"street": {
+						"type": "string"
+					},
+					"city": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string"
+					},
+					"zip": {
+						"type": "integer"
+					},
+					"phones": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"email": {
+				"type": "string"
+			}
+		}
+	}
+]
